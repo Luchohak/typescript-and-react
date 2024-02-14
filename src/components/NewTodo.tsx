@@ -5,7 +5,13 @@ const NewTodo = () => {
 
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    const enteredText = inputRef.current?.value;
+    const enteredText = inputRef.current!.value;
+
+    if(enteredText.trim().length === 0) {
+        return;
+    }
+
+    
   };
 
   return (
