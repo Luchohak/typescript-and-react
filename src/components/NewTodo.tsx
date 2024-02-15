@@ -1,17 +1,17 @@
 import { useRef, useState } from "react";
 
-const NewTodo = () => {
+const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
     const enteredText = inputRef.current!.value;
 
-    if(enteredText.trim().length === 0) {
-        return;
+    if (enteredText.trim().length === 0) {
+      return;
     }
 
-    
+    props.onAddTodo(enteredText);
   };
 
   return (
